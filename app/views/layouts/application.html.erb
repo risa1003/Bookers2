@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <hedaer>
+    <header>
       <% if user_signed_in? %>
         <li>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
@@ -24,7 +24,16 @@
           <%= link_to "ログイン", new_user_session_path %>
         </li>
       <% end %>
-    </hedaer>
+    </header>
     <%= yield %>
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.Inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
