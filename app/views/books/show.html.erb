@@ -1,3 +1,5 @@
+<%= render 'index', user: @user, book: @book_new %>
+
 <h2>Book detail</h2>
 <%= image_tag @book.user.get_profile_image(100,100) %>
 <p>
