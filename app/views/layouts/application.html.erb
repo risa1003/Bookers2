@@ -26,9 +26,9 @@
       <% end %>
     </header>
     <body>
-      <% flash.each do |message_type, message| %>
-        <%= content_tag :div, message, class: message_type %>
-      <% end %>
+      <%# flash.each do |key, value| %>
+        <%#= content_tag(:div, value, class: "#{key}") %>
+      <%# end %>
       <%= yield %>
     </body>
     <footer>
