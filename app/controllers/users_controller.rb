@@ -24,6 +24,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def create
+    @user = User.new(user_params)
+    @user.save
+    redirect_to user_path(current_user)
+  end
+
   private
 
   def user_params
