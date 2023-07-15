@@ -6,9 +6,9 @@ class ApplicationController < ActionController::Base
     user_path(current_user.id)
   end
 
-  def after_sign_out_path_for(resource)
+  def after_sign_out_path_for(resource_or_scope)
     flash[:notice] = "Signed out successfully."
-    about_path
+    home_about_path
   end
 
   protected
