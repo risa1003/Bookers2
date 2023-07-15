@@ -1,23 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h1>Editing Book</h1>
 
+      <% if @book.errors.any? %>
+        <%= @book.errors.count %>error prohibited this obj from being saved:
+        <ul>
+          <% @book.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
 
-<h1>Editing Book</h1>
-<% if @book.errors.any? %>
-  <%= @book.errors.count %>error prohibited this obj from being saved:
-  <ul>
-    <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-<%= form_with model: @book do |book| %>
-  <label>Body</label>
-  <%= book.text_field :title, autofocus: true %>
-  <!-- idを入れるかは不明 -->
-  <label>Title</label>
-  <%= book.text_field :body %>
-  <%= book.submit "Update Book" %>
+      <%= form_with model: @book do |book| %>
+        <%= book.label :Title %>
+        <%= book.text_field :title, autofocus: true, class: "form-control mb-3" %>
 
-  <%= link_to "Show", book_path(@book.id) %>
-  <span>|</span>
-  <%= link_to "Back", '/books' %>
-<% end %>
+        <%= book.label :Body %>
+        <%= book.text_field :body, class: "form-control mb-3" %>
+
+        <%= book.submit "Update Book", class: "btn btn-success mb-3" %>
+      <% end %>
+
+        <%= link_to "Show", book_path(@book.id) %>
+        <span>|</span>
+        <%= link_to "Back", '/books' %>
+    </div>
+  </div>
+</div>
